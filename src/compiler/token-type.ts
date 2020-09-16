@@ -1,0 +1,8 @@
+export enum TokenType {
+  FULL_COLLON,
+  OPEN_BRACKET,
+  CLOSE_BRACKET,
+  COMMA,
+  IDENTIFIER,
+  NUMBER
+}
