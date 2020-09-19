@@ -4,5 +4,11 @@ export enum TokenType {
   CLOSE_BRACKET,
   COMMA,
   IDENTIFIER,
-  NUMBER
+  NUMBER,
+  PLUS,
+  MINUS,
+  DIVIDE,
+  TIMES,
+  FUNCTION,
+  EOF
 }

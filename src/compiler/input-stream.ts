@@ -20,6 +20,10 @@ export class InputStream {
     }
   }
 
+  public Position() {
+    return this.position;
+  }
+
   /**
    * Returns the next character that will be returned when next is called
    * @param {number} ahead
