@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lexer Success Should create the correct token list 1`] = `
+Array [
+  Token {
+    "rawValue": "SUM",
+    "type": 10,
+    "value": "SUM",
+  },
+  Token {
+    "rawValue": "(",
+    "type": 1,
+    "value": "(",
+  },
+  Token {
+    "rawValue": "S1",
+    "type": 4,
+    "value": "S1",
+  },
+  Token {
+    "rawValue": ",",
+    "type": 3,
+    "value": ",",
+  },
+  Token {
+    "rawValue": "S3",
+    "type": 4,
+    "value": "S3",
+  },
+  Token {
+    "rawValue": ",",
+    "type": 3,
+    "value": ",",
+  },
+  Token {
+    "rawValue": "S5",
+    "type": 4,
+    "value": "S5",
+  },
+  Token {
+    "rawValue": ")",
+    "type": 2,
+    "value": ")",
+  },
+  Token {
+    "rawValue": "end",
+    "type": 11,
+    "value": "end",
+  },
+]
+`;
