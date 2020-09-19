@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paser Success Arithmetic expressions Should parse and create the correct syntax tree A1 + A2 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": OperationExpression {
+    "left": null,
+    "list": Array [
+      IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A1",
+      },
+      Token {
+        "rawValue": "+",
+        "type": 6,
+        "value": "+",
+      },
+      IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A2",
+      },
+    ],
+    "right": null,
+  },
+}
+`;
+
+exports[`Paser Success Arithmetic expressions Should parse and create the correct syntax tree A1 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": OperationExpression {
+    "left": null,
+    "list": Array [
+      IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A1",
+      },
+    ],
+    "right": null,
+  },
+}
+`;
+
+exports[`Paser Success Arithmetic expressions Should parse and create the correct syntax tree SUM(A1:A5) - A9 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": OperationExpression {
+    "left": null,
+    "list": Array [
+      FunctionCallExpression {
+        "left": null,
+        "name": "SUM",
+        "right": RangeExpression {
+          "left": IdentifierExpression {
+            "left": null,
+            "right": null,
+            "value": "A1",
+          },
+          "right": IdentifierExpression {
+            "left": null,
+            "right": null,
+            "value": "A5",
+          },
+        },
+      },
+      Token {
+        "rawValue": "-",
+        "type": 7,
+        "value": "-",
+      },
+      IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A9",
+      },
+    ],
+    "right": null,
+  },
+}
+`;
+
+exports[`Paser Success Function calls Should parse and create the correct syntax tree SUM(A1, A2, A3) 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": FunctionCallExpression {
+    "left": null,
+    "name": "SUM",
+    "right": ParametersExpression {
+      "left": null,
+      "parameters": Array [
+        IdentifierExpression {
+          "left": null,
+          "right": null,
+          "value": "A1",
+        },
+        IdentifierExpression {
+          "left": null,
+          "right": null,
+          "value": "A2",
+        },
+        IdentifierExpression {
+          "left": null,
+          "right": null,
+          "value": "A3",
+        },
+      ],
+      "right": null,
+    },
+  },
+}
+`;
+
+exports[`Paser Success Function calls Should parse and create the correct syntax tree SUM(A1:A3) 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": FunctionCallExpression {
+    "left": null,
+    "name": "SUM",
+    "right": RangeExpression {
+      "left": IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A1",
+      },
+      "right": IdentifierExpression {
+        "left": null,
+        "right": null,
+        "value": "A3",
+      },
+    },
+  },
+}
+`;
+
+exports[`Paser Success Function calls Should parse and create the correct syntax tree SUM(AVG(A1:A3), A5) 1`] = `
+ProgramExpression {
+  "left": null,
+  "right": FunctionCallExpression {
+    "left": null,
+    "name": "SUM",
+    "right": ParametersExpression {
+      "left": null,
+      "parameters": Array [
+        FunctionCallExpression {
+          "left": null,
+          "name": "AVG",
+          "right": RangeExpression {
+            "left": IdentifierExpression {
+              "left": null,
+              "right": null,
+              "value": "A1",
+            },
+            "right": IdentifierExpression {
+              "left": null,
+              "right": null,
+              "value": "A3",
+            },
+          },
+        },
+        IdentifierExpression {
+          "left": null,
+          "right": null,
+          "value": "A5",
+        },
+      ],
+      "right": null,
+    },
+  },
+}
+`;

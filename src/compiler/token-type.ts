@@ -9,5 +9,6 @@ export enum TokenType {
   MINUS,
   DIVIDE,
   TIMES,
-  FUNCTION
+  FUNCTION,
+  EOF
 }

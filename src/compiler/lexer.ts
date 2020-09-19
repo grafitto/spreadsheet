@@ -6,10 +6,16 @@ import { TokenType } from './token-type';
 export class Lexer {
   private stream: InputStream;
   private tokens: Token[];
+  private position: number
 
   constructor (code: string) {
+    this.position = 0;
     this.tokens = [];
     this.stream = new InputStream(code);
+  }
+
+  get Position (): number {
+    return this.position;
   }
 
   public generate(): Token[] {
@@ -46,8 +52,10 @@ export class Lexer {
         } else {
           // must be an identifier
           let identifier = char;
-          while(!['+', '*','-','/', ':', ',', ')', '('].includes(this.stream.peek())) {
-            identifier += this.stream.next();
+          while(!['+', '*','-','/', ':', ',', ')', '('].includes(this.stream.peek()) && !this.stream.end()) {
+            const current = this.stream.next();
+            if(current === ' ') continue;
+            identifier += current;
             this.tokens.push(new Token(TokenType.IDENTIFIER, identifier, identifier));
           }
         }
@@ -55,7 +63,20 @@ export class Lexer {
         throw Error(`Unknown character ${char} at position ${this.stream.Position}`);
       }
     }
-    return this.tokens
+    this.tokens.push(new Token(TokenType.EOF, 'end', 'end'));
+    return this.tokens;
+  }
+
+  public next(): Token {
+    return this.tokens[this.position++];
+  }
+
+  public peek(ahead = 0): Token {
+    return this.tokens[this.position + ahead];
+  }
+
+  public previous(): void {
+    this.position--;
   }
 
   private isAlphabet(char: string): boolean {
