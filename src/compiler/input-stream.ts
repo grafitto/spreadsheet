@@ -6,10 +6,6 @@ export class InputStream {
     this.code = code;
   }
 
-  get Position (): number {
-    return this.position;
-  }
-
   /**
    * Fetches the next character then steps one step
    * @returns {string}
