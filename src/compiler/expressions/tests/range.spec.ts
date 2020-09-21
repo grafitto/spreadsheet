@@ -37,7 +37,7 @@ describe('Function call', () => {
   })
   describe('Error', () => {
     it('should throw an error when one of the values is a string', () => {
-      grid = fixtures.insertDataToGrid(grid, 'A5', { formular: '', value: 'some value'});
+      grid = fixtures.insertDataToGrid(grid, 'A5', { formula: '', value: 'some value'});
       expect(() => range.evaluate(grid)).toThrowError();
     })
   })

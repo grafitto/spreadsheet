@@ -29,7 +29,7 @@ describe('Identifier', () => {
   describe('Error', () => {
     beforeAll(() => {
       cellValue = {
-        formular: '', value: 'string'
+        formula: '', value: 'string'
       }
       grid = fixtures.insertDataToGrid(grid, cell, cellValue);
     })

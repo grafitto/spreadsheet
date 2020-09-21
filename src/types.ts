@@ -1,5 +1,7 @@
+import { FunctionCallExpression, IdentifierExpression, ParametersExpression } from './compiler/expressions';
+
 export interface Cell {
-  formular: string;
+  formula: string;
   value: number | string;
 }
 
@@ -9,13 +11,14 @@ export interface AppState {
 
 export type Grid = Array<Array<Cell>>;
 
+export type ParameterExpression = (FunctionCallExpression | ParametersExpression | IdentifierExpression)[]
 export interface Payload {
   cell: {
     row: number;
     column: number;
   };
   value: {
-    formular: string;
+    formula: string;
     value: string | number;
   };
 }

@@ -1,4 +1,4 @@
-import { Grid } from '@/types';
+import { Grid } from '../../types';
 import { Expression } from './expression';
 
 export class ProgramExpression extends Expression {

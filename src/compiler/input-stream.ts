@@ -20,7 +20,7 @@ export class InputStream {
     }
   }
 
-  public Position() {
+  get Position() {
     return this.position;
   }
 
