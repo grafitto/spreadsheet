@@ -1,4 +1,4 @@
-import { Grid } from '@/types';
+import { Grid } from '../../types';
 
 export abstract class Expression {
   protected left: Expression | null;

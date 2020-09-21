@@ -1,6 +1,6 @@
-import { Grid } from '@/types';
+import { Grid } from '../../types';
 import { Expression } from './expression';
-import { alphabeticPositions } from '@/helpers/grid';
+import { alphabeticPositions } from '../../helpers/grid';
 
 export class IdentifierExpression extends Expression {
   private value: string;
@@ -17,7 +17,7 @@ export class IdentifierExpression extends Expression {
   /**
    * Fetches the value from the store and returns it
    */
-  public evaluate (grid: Grid): unknown {
+  public evaluate (grid: Grid): number {
     const column = alphabeticPositions[this.value[0].toUpperCase()];
     const row = parseInt(this.value[1]) - 1;
     const value = grid[row][column].value;

@@ -1,5 +1,5 @@
-import { alphabeticPositions } from '@/helpers/grid';
-import { Grid } from '@/types';
+import { alphabeticPositions } from '../../helpers/grid';
+import { Grid } from '../../types';
 import { Expression } from './expression';
 import { IdentifierExpression } from './identifier';
 
@@ -29,7 +29,7 @@ export class RangeExpression extends Expression {
     const list = [];
     for(let i = rowStart; i <= rowEnd; i++) {
       const value = grid[i][column].value;
-      if (typeof value === 'string') throw Error(`Invalid string ${value} in ${firstColumnAlphabet}${i}`);
+      if (typeof value === 'string') throw Error(`Invalid string ${value} in ${firstColumnAlphabet}${i + 1}`);
       list.push(value);
     }
     return list;

@@ -10,6 +10,7 @@ import {
 import { ParametersExpression } from './expressions/parameters';
 import { OperationExpression } from './expressions/operation';
 import { Token } from './token';
+import { ParameterExpression } from '../types';
 
 export class Parser {
   private lexer: Lexer;
@@ -45,7 +46,7 @@ export class Parser {
   }
 
   private operation (firstOperand: FunctionCallExpression | IdentifierExpression): OperationExpression {
-    const list: (Expression | Token)[] = [];
+    const list: (FunctionCallExpression | IdentifierExpression | Token)[] = [];
     list.push(firstOperand);
     let token = this.lexer.next();
     while (token.Type !== TokenType.EOF) {
@@ -82,7 +83,7 @@ export class Parser {
         return new RangeExpression(start, end);
       } else if (this.lexer.peek().Type === TokenType.COMMA) {
         this.lexer.previous();
-        const parameters: Expression[] = [];
+        const parameters: ParameterExpression = [];
         while (this.lexer.peek().Type !== TokenType.CLOSE_BRACKET) {
           const innerToken = this.lexer.next();
           if (innerToken.Type === TokenType.IDENTIFIER) {
@@ -97,7 +98,7 @@ export class Parser {
         throw Error(`Unknown character ${token.RawValue} at position ${this.lexer.Position}`)
       }
     } else if (token.Type === TokenType.FUNCTION) {
-      const parameters: Expression[] = [];
+      const parameters: ParameterExpression = [];
       this.lexer.previous();
       const functionCall: FunctionCallExpression = this.functionCall() as FunctionCallExpression;
       parameters.push(functionCall);
