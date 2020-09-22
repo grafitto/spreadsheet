@@ -1,4 +1,4 @@
-import { Grid } from '@/types';
+import { Grid } from '../../types';
 import { RangeExpression } from '.';
 import { Expression } from './expression';
 

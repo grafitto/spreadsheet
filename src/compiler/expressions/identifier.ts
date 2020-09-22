@@ -19,7 +19,7 @@ export class IdentifierExpression extends Expression {
    */
   public evaluate (grid: Grid): number {
     const column = alphabeticPositions[this.value[0].toUpperCase()];
-    const row = parseInt(this.value[1]) - 1;
+    const row = parseInt(this.value.substring(1)) - 1;
     const value = grid[row][column].value;
     if(typeof value === 'number') {
       return value;

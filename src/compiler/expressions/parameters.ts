@@ -1,11 +1,10 @@
-import { Grid } from '@/types';
-import { IdentifierExpression } from '.';
+import { Grid, ParameterExpression } from '../../types';
 import { Expression } from './expression';
 
 export class ParametersExpression extends Expression {
-  private parameters: (ParametersExpression | IdentifierExpression)[];
+  private parameters: ParameterExpression;
 
-  constructor(parameters: (ParametersExpression | IdentifierExpression)[]) {
+  constructor(parameters: ParameterExpression) {
     super(null, null);
     this.parameters = parameters;
   }
