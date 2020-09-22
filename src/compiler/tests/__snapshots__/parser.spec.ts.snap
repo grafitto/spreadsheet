@@ -4,6 +4,12 @@ exports[`Paser Success Arithmetic expressions Should parse and create the correc
 ProgramExpression {
   "left": null,
   "right": OperationExpression {
+    "PRECEDENCE": Object {
+      "*": 15,
+      "+": 14,
+      "-": 14,
+      "/": 15,
+    },
     "left": null,
     "list": Array [
       IdentifierExpression {
@@ -31,6 +37,12 @@ exports[`Paser Success Arithmetic expressions Should parse and create the correc
 ProgramExpression {
   "left": null,
   "right": OperationExpression {
+    "PRECEDENCE": Object {
+      "*": 15,
+      "+": 14,
+      "-": 14,
+      "/": 15,
+    },
     "left": null,
     "list": Array [
       IdentifierExpression {
@@ -48,6 +60,12 @@ exports[`Paser Success Arithmetic expressions Should parse and create the correc
 ProgramExpression {
   "left": null,
   "right": OperationExpression {
+    "PRECEDENCE": Object {
+      "*": 15,
+      "+": 14,
+      "-": 14,
+      "/": 15,
+    },
     "left": null,
     "list": Array [
       FunctionCallExpression {

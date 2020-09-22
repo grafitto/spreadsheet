@@ -8,10 +8,10 @@ export const alphabeticPositions: { [key: string]: number } = {
     'Z': 25
 }
 
-export function initialiseGrid(): Grid {
+export function initialiseGrid(defaults = { formular: '', value: ''}): Grid {
   const row = new Array(50).fill([]);
   for(let i = 0; i < 50; i++) {
-    row[i] = (new Array(26)).fill(0).map(() => ({ formula: '', value: ''}));
+    row[i] = (new Array(26)).fill(0).map(() => defaults);
   }
   return row;
 }
