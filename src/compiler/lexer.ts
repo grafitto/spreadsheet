@@ -56,8 +56,8 @@ export class Lexer {
             const current = this.stream.next();
             if(current === ' ') continue;
             identifier += current;
-            this.tokens.push(new Token(TokenType.IDENTIFIER, identifier, identifier));
           }
+          this.tokens.push(new Token(TokenType.IDENTIFIER, identifier, identifier));
         }
       } else {
         throw Error(`Unknown character ${char} at position ${this.stream.Position}`);

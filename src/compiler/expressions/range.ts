@@ -23,8 +23,8 @@ export class RangeExpression extends Expression {
       throw Error(`Column must be the same in range ${this.left?.Value}:${this.right?.Value}`);
     }
     const column = alphabeticPositions[firstColumnAlphabet];
-    const rowStart = parseInt(this.left?.Value[1]) - 1;
-    const rowEnd = parseInt(this.right?.Value[1]) - 1;
+    const rowStart = parseInt(this.left?.Value.substring(1)) - 1;
+    const rowEnd = parseInt(this.right?.Value.substring(1)) - 1;
 
     const list = [];
     for(let i = rowStart; i <= rowEnd; i++) {
