@@ -56,6 +56,7 @@ export class Parser {
       } else if (token.Type === TokenType.FUNCTION) {
         this.lexer.previous();
         list.push(this.functionCall());
+        token = this.lexer.next();
       } else if (token.Type === TokenType.IDENTIFIER) {
         list.push(new IdentifierExpression(token.Value as string));
         token = this.lexer.next();

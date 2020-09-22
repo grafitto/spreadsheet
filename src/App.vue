@@ -1,13 +1,45 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <table cellspacing="0">
+      <tr>
+        <th v-for="single in ['', ...alphabets]" :key="single">{{ single }}</th>
+      </tr>
+      <tr v-for="(row, rindex) in grid" :key="rindex">
+        <td style="background: #999; color: white">{{ rindex + 1 }}</td>
+        <td v-for="(column, cindex) in columns(rindex)" :key="cindex">
+            <CellView :column="cindex" :row="rindex"></CellView>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import { mapState } from 'vuex';
+import { Cell } from './types';
+import CellView from '@/components/cell.vue';
+import { alphabets } from './helpers/grid';
+
+@Component({
+  computed: {
+    ...mapState(['grid'])
+  },
+  components: { CellView }
+})
+export default class App extends Vue {
+  
+  get alphabets () {
+    return alphabets;
+  }
+
+  columns(row: number): Array<Cell> {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    return this.grid[row];
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,17 +48,15 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
+td {
+  border: #ccc 1px solid;
+  padding: none;
+  margin: none;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+th {
+  background: #999;
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 </style>
