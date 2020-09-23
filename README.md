@@ -21,6 +21,9 @@ Note thatn formulas   **MUST** begin with `=` otherwise, they will be treated as
   This solves the arithmetic operation following precedence rules.
   **Note**: You could also do `=SUM(A1:A4) + AVG(A2, A3, A4) / A8 * A9`
 
+## Limitations:
+
+I was not able to achieve mainly due to time was reactivity. Where a cell should react to changes of any cell that it Is dependent on. I will be working on this and will resubmit if the deadline is not reached by then. For now you have to click on the cell, then click elsewhere for it to update itself.
 
 ## Project setup
 ```
