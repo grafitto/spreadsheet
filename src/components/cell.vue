@@ -1,5 +1,5 @@
 <template>
-  <input @blur="cellChanged" :value="displayValue" @focus="updateDisplayValue">
+  <input @blur="cellChanged" :value="displayValue" @focus="updateDisplayValue" v-bind:style="{ border: computedColor }">
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
@@ -14,12 +14,17 @@ import { ProgramExpression } from '@/compiler/expressions';
   }
 })
 export default class CellView extends Vue {
+  private color = 'none';
   // @ts-ignore
   @Prop({ default: 0 }) column;
   // @ts-ignore
   @Prop({ default: 0 }) row;
 
-  private displayValue = ''
+  private displayValue = '';
+
+  get computedColor () {
+    return this.color;
+  }
 
   mounted () {
     this.updateDisplayValue(); 
@@ -42,6 +47,7 @@ export default class CellView extends Vue {
         final.value = evaluated;
         this.setCell(final);
       } catch (e) {
+        this.color = '1px solid red';
         alert(e);
       }
     } else if (value !== '') {
@@ -81,6 +87,7 @@ export default class CellView extends Vue {
       },
       value
     })
+    this.color = 'none';
   }
 }
 </script>
