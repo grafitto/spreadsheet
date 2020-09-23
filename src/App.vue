@@ -7,7 +7,7 @@
       <tr v-for="(row, rindex) in grid" :key="rindex">
         <td style="background: #999; color: white">{{ rindex + 1 }}</td>
         <td v-for="(column, cindex) in columns(rindex)" :key="cindex">
-            <CellView :column="cindex" :row="rindex"></CellView>
+            <CellView :column="cindex" :row="rindex" :class="'cell-' + cindex + '-' + rindex"></CellView>
         </td>
       </tr>
     </table>
